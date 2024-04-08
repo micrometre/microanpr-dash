@@ -1,10 +1,16 @@
 import ExploreContainer from './components/ExploreContainer';
+import SideNav from './components/SideNav';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <ExploreContainer name="Tab 2 page" />
-      </header>
+      <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+        <div className="bg-blue-200 w-full flex-none md:w-64">
+          <SideNav  />
+        </div>
+        <div className="bg-blue-100 grow p-6 md:overflow-y-auto md:p-12">
+          <ExploreContainer  />
+        </div>
+      </div>
     </div>
   );
 }
