@@ -1,6 +1,7 @@
 import { PowerIcon } from '@heroicons/react/24/outline';
 import BrandLogo from './BrandLogo';
-
+import sun from '../images/sun.png'
+import moon from '../images/moon.png'
 
 function SideNav() {
   return (
@@ -17,11 +18,8 @@ function SideNav() {
           </button>
         </div>
       </div>
-      <p>MicroANPR DashBoard UI Components</p>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-
+      <img src={sun} className="App-logo" alt="logo" />
+      <img src={moon} className="App-logo" alt="logo" />
 
     </div>
   );

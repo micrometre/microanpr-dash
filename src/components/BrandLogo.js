@@ -1,5 +1,4 @@
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
-
 export default function BrandLogo() {
   return (
     <div
@@ -12,7 +11,6 @@ export default function BrandLogo() {
         <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
         <p className="text-[35px] ">MicroANPR</p>
       </div>
-
 
 
     </div>
