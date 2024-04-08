@@ -23,7 +23,8 @@ const ThemeSwitcher = () => {
   return (
     <button
       onClick={toggleDarkMode}
-      className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-sky-500   p-3 text-white text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+      className="flex h-[48px] full grow items-center gap-2 rounded-md"
+
     >
       {darkMode ? <SunIcon className="w-6"/>  : <MoonIcon className="w-6" />}
                   <div className="hidden md:block">Theme</div>
