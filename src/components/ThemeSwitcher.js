@@ -23,7 +23,7 @@ const ThemeSwitcher = () => {
   return (
     <button
       onClick={toggleDarkMode}
-      className="flex h-[48px] full grow items-center gap-2 rounded-md"
+      className=" h-[48px] w-16 items-center gap-2 rounded-md"
 
     >
       {darkMode ? <SunIcon className="w-6"/>  : <MoonIcon className="w-6" />}
