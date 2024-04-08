@@ -4,7 +4,7 @@ import BrandLogo from './BrandLogo';
 
 function SideNav() {
   return (
-    <div className="side-nav bg-teal-500">
+    <div className="side-nav ">
       <div className="flex h-full flex-col px-3 py-4 md:px-2">
         <div className="w-32  md:w-40">
           <BrandLogo />
@@ -21,6 +21,8 @@ function SideNav() {
       <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1>
+
+
     </div>
   );
 }

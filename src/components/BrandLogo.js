@@ -5,8 +5,16 @@ export default function BrandLogo() {
     <div
       className="flex flex-row items-center leading-none "
     >
-      <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
-      <p className="text-[44px] ">MicroANPR</p>
+
+      <div
+        className={` flex flex-row items-center leading-none text-white`}
+      >
+        <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
+        <p className="text-[35px] ">MicroANPR</p>
+      </div>
+
+
+
     </div>
   );
 }
