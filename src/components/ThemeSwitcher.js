@@ -1,9 +1,9 @@
-// src/components/ThemeSwitcher.js
+// src/components/ThemeRouteer.js
 import React, { useState, useEffect } from 'react';
 import {SunIcon} from '@heroicons/react/24/outline';
 import {MoonIcon} from '@heroicons/react/24/outline';
 
-const ThemeSwitcher = () => {
+const ThemeRouteer = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -33,4 +33,4 @@ const ThemeSwitcher = () => {
   );
 };
 
-export default ThemeSwitcher;
+export default ThemeRouteer;
