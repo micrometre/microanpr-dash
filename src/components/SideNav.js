@@ -1,11 +1,10 @@
 import { PowerIcon } from '@heroicons/react/24/outline';
 import BrandLogo from './BrandLogo';
-import sun from '../images/sun.png'
-import moon from '../images/moon.png'
+import ThemeSwitcher from './ThemeSwitcher';
 
 function SideNav() {
   return (
-    <div className="side-nav ">
+    <div className="side-nav  bg-blue-500 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
       <div className="flex h-full flex-col px-3 py-4 md:px-2">
         <div className="w-32  md:w-40">
           <BrandLogo />
@@ -18,9 +17,7 @@ function SideNav() {
           </button>
         </div>
       </div>
-      <img src={sun} className="App-logo" alt="logo" />
-      <img src={moon} className="App-logo" alt="logo" />
-
+          <ThemeSwitcher/>
     </div>
   );
 }

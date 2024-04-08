@@ -1,5 +1,6 @@
 // src/components/ThemeSwitcher.js
 import React, { useState, useEffect } from 'react';
+import { PowerIcon } from '@heroicons/react/24/outline';
 
 const ThemeSwitcher = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,7 +24,7 @@ const ThemeSwitcher = () => {
       onClick={toggleDarkMode}
       className="px-4 py-2 rounded-md bg-gray-800 text-white"
     >
-      {darkMode ? 'Light Mode' : 'Dark Mode'}
+      {darkMode ? 'Light Mode' :<PowerIcon className="w-6" />}
     </button>
   );
 };
