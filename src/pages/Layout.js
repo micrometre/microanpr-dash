@@ -8,12 +8,10 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
-            <ThemeSwitcher/>
-
+            <Link to="/">DashBoard</Link>
           </li>
           <li>
-            <Link to="/dashboard">DashBoard</Link>
+            <Link to="/dashboard">home</Link>
           </li>
         </ul>
       </nav>
