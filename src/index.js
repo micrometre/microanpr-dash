@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
 import NoPage from "./pages/NoPage";
 import './index.css';
+
 export default function App() {
   return (
     <BrowserRouter>

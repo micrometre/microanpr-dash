@@ -1,5 +1,4 @@
 import { Outlet, Link } from "react-router-dom";
-import ThemeSwitcher from '../components/ThemeSwitcher';
 
 const Layout = () => {
   return (
@@ -11,7 +10,6 @@ const Layout = () => {
             <Link to="/">DashBoard</Link>
           </li>
           <li>
-            <Link to="/dashboard">home</Link>
           </li>
         </ul>
       </nav>
