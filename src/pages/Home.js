@@ -1,14 +1,7 @@
 import ExploreContainer from '../components/ExploreContainer';
 import SideNav from '../components/SideNav';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link,
-    useRouteMatch,
-    useParams
-} from "react-router-dom";
 
+import "../App.css"
 export default function Home() {
     return (
         <>
