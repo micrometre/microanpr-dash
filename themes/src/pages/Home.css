@@ -1,0 +1,33 @@
+
+.row{
+    height: 30rem;
+    border: 0.5rem solid blue;
+
+}
+
+.col-1{
+    background: #ff0000;
+    width: 25%;
+
+}
+
+.col-2{
+    background: #4cff15;
+    width: 75%;
+
+}
+
+
+  
+  @media screen and (max-width: 600px) {
+    .col-1 {
+      display: none;
+    }
+
+  .col-2{
+    background: #eeff01;
+    width: 100%;
+
+}
+ 
+}
