@@ -1,31 +1,32 @@
 import { useState, useEffect } from "react";
 import UploadService from "../services/FileUploadService";
-import IFile from "../types/File.ts";
+import IFile from "../types/File";
 
-const FileUpload: React.FC = () => {
-  const [currentFile, setCurrentFile] = useState<File>();
+const ImageUpload: React.FC = () => {
+  const [currentImage, setCurrentImage] = useState<File>();
+  const [previewImage, setPreviewImage] = useState<string>("");
   const [progress, setProgress] = useState<number>(0);
   const [message, setMessage] = useState<string>("");
-  const [fileInfos, setFileInfos] = useState<Array<IFile>>([]);
+  const [imageInfos, setImageInfos] = useState<Array<IFile>>([]);
 
   useEffect(() => {
     UploadService.getFiles().then((response) => {
-      setFileInfos(response.data);
+      setImageInfos(response.data);
     });
   }, []);
 
-  const selectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { files } = event.target;
-    const selectedFiles = files as FileList;
-    setCurrentFile(selectedFiles?.[0]);
+  const selectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFiles = event.target.files as FileList;
+    setCurrentImage(selectedFiles?.[0]);
+    setPreviewImage(URL.createObjectURL(selectedFiles?.[0]));
     setProgress(0);
   };
 
   const upload = () => {
     setProgress(0);
-    if (!currentFile) return;
+    if (!currentImage) return;
 
-    UploadService.upload(currentFile, (event: any) => {
+    UploadService.upload(currentImage, (event: any) => {
       setProgress(Math.round((100 * event.loaded) / event.total));
     })
       .then((response) => {
@@ -33,7 +34,7 @@ const FileUpload: React.FC = () => {
         return UploadService.getFiles();
       })
       .then((files) => {
-        setFileInfos(files.data);
+        setImageInfos(files.data);
       })
       .catch((err) => {
         setProgress(0);
@@ -41,26 +42,26 @@ const FileUpload: React.FC = () => {
         if (err.response && err.response.data && err.response.data.message) {
           setMessage(err.response.data.message);
         } else {
-          setMessage("Could not upload the File!");
+          setMessage("Could not upload the Image!");
         }
 
-        setCurrentFile(undefined);
+        setCurrentImage(undefined);
       });
   };
 
   return (
     <div>
       <div className="row">
-        <div className="col">
-          <label className="btn">
-            <input type="file" onChange={selectFile} />
+        <div className="col-8">
+          <label className="btn btn-default p-0">
+            <input type="file" accept="image/*" onChange={selectImage} />
           </label>
         </div>
 
         <div className="col-4">
           <button
-            className="btn"
-            disabled={!currentFile}
+            className="btn btn-success btn-sm"
+            disabled={!currentImage}
             onClick={upload}
           >
             Upload
@@ -68,7 +69,7 @@ const FileUpload: React.FC = () => {
         </div>
       </div>
 
-      {currentFile && (
+      {currentImage && progress > 0 && (
         <div className="progress my-3">
           <div
             className="progress-bar progress-bar-info"
@@ -83,25 +84,15 @@ const FileUpload: React.FC = () => {
         </div>
       )}
 
-      {message && (
-        <div className="alert" role="alert">
-          {message}
+      {previewImage && (
+        <div>
+          <img className="preview" src={previewImage} alt="" />
         </div>
       )}
 
-      <div className="card mt-3">
-        <div className="card-header">List of Files</div>
-        <ul className="list-group list-group-flush">
-          {fileInfos &&
-            fileInfos.map((file, index) => (
-              <li className="list-group-item" key={index}>
-                <a href={file.url}>{file.name}</a>
-              </li>
-            ))}
-        </ul>
-      </div>
+
     </div>
   );
 };
 
-export default FileUpload;
+export default ImageUpload;

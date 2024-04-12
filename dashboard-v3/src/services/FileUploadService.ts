@@ -5,7 +5,7 @@ const upload = (file: File, onUploadProgress: any): Promise<any> => {
 
   formData.append("file", file);
 
-  return http.post("/upload", formData, {
+  return http.post("/", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -14,7 +14,7 @@ const upload = (file: File, onUploadProgress: any): Promise<any> => {
 };
 
 const getFiles = () : Promise<any> => {
-  return http.get("/files");
+  return http.get("/");
 };
 
 const FileUploadService = {
