@@ -1,5 +1,4 @@
-import FileUpload from "./FileUpload";
-
+import ImageUpload from "./ImageUpload";
 export function Content() {
   return (
     <div className="flex flex-col flex-wrap sm:flex-row">
@@ -13,7 +12,7 @@ export function Content() {
                     <span className="ml-2 font-bold text-black">
                       Uplaod Photo
                     </span>
-                    <FileUpload/>
+                    <ImageUpload/>
                   </div>
                 </div>
               </div>

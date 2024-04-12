@@ -297,6 +297,11 @@
     "@swc/core-win32-ia32-msvc" "1.3.64"
     "@swc/core-win32-x64-msvc" "1.3.64"
 
+"@symbiotejs/symbiote@^1.11.7":
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/@symbiotejs/symbiote/-/symbiote-1.11.7.tgz#78a9f415d17ec3b3546de1706e464d4d72e55510"
+  integrity sha512-fUOJwzuldeApJ533YeTdrfnpp4nsA+ss1eiNBodX7RHf4LnhPB2Z9HP4fF3m2YhKYnxK0whjXaKA+wrxTRP5qA==
+
 "@types/debug@^4.1.8":
   version "4.1.8"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.8.tgz#cef723a5d0a90990313faec2d1e22aee5eecb317"
@@ -428,6 +433,28 @@
   dependencies:
     "@typescript-eslint/types" "5.59.11"
     eslint-visitor-keys "^3.3.0"
+
+"@uploadcare/blocks@^0.36.0":
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/@uploadcare/blocks/-/blocks-0.36.0.tgz#131707496c3e7a805f35f5205519da5984685774"
+  integrity sha512-FOwlQFlt2mEqaH50he+1Pdu22HyXpX7rK9+KDJXF++QJmA1Aus5e0pxmqp2fAPqI552Qm8CUC/65mIoXnvC+Uw==
+  dependencies:
+    "@symbiotejs/symbiote" "^1.11.7"
+    "@uploadcare/image-shrink" "^6.14.1"
+    "@uploadcare/upload-client" "^6.14.1"
+
+"@uploadcare/image-shrink@^6.14.1":
+  version "6.14.1"
+  resolved "https://registry.yarnpkg.com/@uploadcare/image-shrink/-/image-shrink-6.14.1.tgz#6153d7cd6e45997b2022d369935adf0a4cf433c3"
+  integrity sha512-r3uu+9xsgqNqL5hvBya7RDDQVPMpTF12C1MRN80O1H6ITVvWLfngtmUbP44qg7YhAraLoynDJlkmHMiHanCw0w==
+
+"@uploadcare/upload-client@^6.14.1":
+  version "6.14.1"
+  resolved "https://registry.yarnpkg.com/@uploadcare/upload-client/-/upload-client-6.14.1.tgz#1fedc2659a471e7ba2c4977435ad55e54a9e026d"
+  integrity sha512-GvXLq6GGyXHjq7tebfv3IqHFpMzuOSuNPOhwCcNPquUbwoAlTEFPLjB2Ir/EZUuCtTWowluLjo4LPDQwvHbqyA==
+  dependencies:
+    form-data "^4.0.0"
+    ws "^8.2.3"
 
 "@vitejs/plugin-react-swc@^3.0.0":
   version "3.3.2"
@@ -2117,6 +2144,11 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
+
+ws@^8.2.3:
+  version "8.16.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.16.0.tgz#d1cd774f36fbc07165066a60e40323eab6446fd4"
+  integrity sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==
 
 yallist@^4.0.0:
   version "4.0.0"
