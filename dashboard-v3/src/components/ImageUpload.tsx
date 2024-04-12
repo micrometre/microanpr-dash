@@ -13,7 +13,6 @@ const ImageUpload: React.FC = () => {
     setProgress(0);
     console.log(progress)
   };
-
   function upload() {
     setProgress(100);
     if (!currentImage) return;
@@ -26,30 +25,25 @@ const ImageUpload: React.FC = () => {
     <div>
       <div className="row">
         <div className="col">
+          <label>
+          </label>
           <label className="btn">
+            File progress: <progress value="0" max="100" />
+            {progress}%
             <input type="file" accept="image/*" onChange={selectImage} />
           </label>
         </div>
 
         <div className="col">
           <button
-            className="btn "
+            className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+
             onClick={upload}
           >
             Upload
           </button>
         </div>
       </div>
-        <div className="progress bg-green-800">
-          <div
-            className="progress-bar progress-bar-info"
-            aria-valuenow={progress}
-            aria-valuemax={100}
-            style={{ width: 100 + "%" }}
-          >
-            {progress}%
-          </div>
-        </div>
       {previewImage && (
         <div>
           <img className="preview" src={previewImage} alt="" />

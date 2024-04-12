@@ -5,7 +5,7 @@ from flask_cors import CORS
 import logging
 
 UPLOAD_FOLDER = '../public/uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'mp4', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 logging.getLogger('flask_cors').level = logging.DEBUG
 
 app = Flask(__name__)
