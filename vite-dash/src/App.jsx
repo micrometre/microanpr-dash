@@ -6,9 +6,5 @@ import { Suspense } from "react";
 import { useRoutes } from "react-router-dom";
 
 export default function App() {
-
-    return (
-        <div className="App">
-        </div>
-    )
+    return <Suspense fallback={<p>Loading...</p>}>{useRoutes(routes)}</Suspense>;
 }
