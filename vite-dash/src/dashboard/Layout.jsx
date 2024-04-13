@@ -20,7 +20,7 @@ const Content = props => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/blogs">Dashboard</Link>
+            <Link to="/admin/dashboard">Dashboard</Link>
           </li>
         </ul>
       </nav>
