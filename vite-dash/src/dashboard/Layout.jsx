@@ -1,4 +1,8 @@
+import React from "react";
+import { TopBar } from "./TopBar";
 import { Link } from "react-router-dom"
+import { Overlay } from "./Overlay";
+import { Sidebar } from "./sidebar/Sidebar";
 import { DashboardProvider, useDashboardContext } from "./Provider";
 
 
@@ -14,20 +18,18 @@ const Content = props => {
   const { sidebarOpen } = useDashboardContext()
   return (
     <div className={style.container}>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/admin/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-      </nav>
       <div className="flex items-start">
-        <div>
+        <Overlay />
+        <Sidebar mobileOrientation="end" />
+        <div
+          className={`${style.mainContainer} 
+             ${sidebarOpen ? style.open : style.close}`}
+        >
+          <TopBar />
           <main className={style.main}>{props.children}</main>;
         </div>
+
+
       </div>
     </div>
   )
