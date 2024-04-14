@@ -8,10 +8,10 @@ import { DashboardProvider, useDashboardContext } from "./Provider";
 
 
 const style = {
-  open: "lg:w-full",
+  open: "bg-white lg:w-full",
   close: "lg:pl-4 lg:lg:w-[calc(100%-16rem)]",
   mainContainer: "flex flex-col w-full h-screen pl-0 lg:space-y-4",
-  container: "bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 h-screen overflow-hidden relative lg:p-4",
+  container: "dark:bg-neutral-800 bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700  h-screen overflow-hidden relative lg:p-4",
   main: "h-screen overflow-auto pb-36 pt-8 px-2 md:pb-8 md:pt-4 lg:pt-0"
 }
 const Content = props => {

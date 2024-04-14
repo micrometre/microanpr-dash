@@ -5,9 +5,6 @@ const Home = () => {
   return (
     <div>
       Pages Home
-      <ThemeSwitcher/>
-      <ThemeSwitcher/>
-      <ThemeSwitcher/>
 
     </div>
   )

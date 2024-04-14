@@ -1,12 +1,10 @@
 import React from 'react'
 import ImageUpload from '../../components/ImageUpload'
-import DashboardImage from '../../components/DashboardImage'
 const Home = () => {
   return (
 
     <div>
-      <DashboardImage />
-      dashboard
+     Image lookups
     </div>
   )
 }
