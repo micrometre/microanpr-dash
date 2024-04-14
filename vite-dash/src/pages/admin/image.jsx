@@ -1,12 +1,14 @@
 import React from 'react'
 import ImageUpload from '../../components/ImageUpload'
-const Home = () => {
+
+
+
+export default function Image() {
   return (
 
     <div>
-     Image lookups
+      Image lookups
+      <ImageUpload />
     </div>
   )
 }
-
-export default Home
