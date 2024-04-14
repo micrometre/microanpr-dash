@@ -9,10 +9,10 @@ const style = {
     start: "left-0",
     end: "right-0"
   },
-  container: "dark:bg-neutral-800 pb-32 lg:pb-6",
+  container: "dark:bg-neutral-700 pb-32 lg:pb-6",
   close: "hidden lg:block lg:w-64 lg:z-auto",
   open: "w-8/12 absolute z-40 sm:w-5/12 lg:hidden",
-  default: "dark:bg-neutral-800  shadow-2xl bg-white h-screen overflow-y-auto top-0 lg:relative"
+  default: "dark:bg-neutral-700  shadow-2xl bg-white h-screen overflow-y-auto top-0 lg:relative"
 }
 
 export function Sidebar(props) {
