@@ -2,6 +2,7 @@ import css from "../style.module.css"
 import { SidebarItems } from "./SidebarItems"
 import { SidebarHeader } from "./SidebarHeader"
 import { useDashboardContext } from "../Provider"
+import ThemeSwitcher from '../../components/ThemeSwitcher';
 
 const style = {
   mobileOrientation: {
@@ -25,6 +26,7 @@ export function Sidebar(props) {
       <div className={style.container}>
         <SidebarHeader />
         <SidebarItems />
+        <ThemeSwitcher />
       </div>
     </aside>
   )

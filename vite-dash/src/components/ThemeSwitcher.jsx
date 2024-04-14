@@ -1,9 +1,7 @@
-// src/components/ThemeRouteer.js
+// src/components/ThemeSwitcher.js
 import React, { useState, useEffect } from 'react';
-import {SunIcon} from '@heroicons/react/24/outline';
-import {MoonIcon} from '@heroicons/react/24/outline';
 
-const ThemeRouteer = () => {
+const ThemeSwitcher = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -22,15 +20,16 @@ const ThemeRouteer = () => {
 
   return (
     <button
-      onClick={toggleDarkMode}
-      className=" h-[48px] w-16 items-center gap-2 rounded-md"
-
-    >
-      {darkMode ? <SunIcon className="w-6"/>  : <MoonIcon className="w-6" />}
-                  <div className="hidden md:block">Theme</div>
-
-    </button>
+    onClick={toggleDarkMode}
+    className={`px-4 py-2 rounded-full ${
+      darkMode ? 'bg-yellow-400' : 'bg-gray-800'
+    } ${
+      darkMode ? 'text-gray-900' : 'text-white'
+    } transition-colors duration-200`}
+  >
+    {darkMode ? 'Light Mode' : 'Dark Mode'}
+  </button>
   );
 };
 
-export default ThemeRouteer;
+export default ThemeSwitcher;
