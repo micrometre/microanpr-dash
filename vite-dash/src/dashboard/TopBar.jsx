@@ -1,9 +1,10 @@
 import { useDashboardContext } from "./Provider";
+import ThemeSwitcher from '../components/ThemeSwitcher';
 
 export function TopBar() {
   const { toggleSidebar } = useDashboardContext();
   return (
-    <header className="relative z-10 h-16 w-full items-center bg-white shadow md:h-20 lg:rounded-2xl">
+    <header className=" dark:bg-neutral-800 relative z-10 h-16 w-full items-center bg-white shadow md:h-20 lg:rounded-2xl">
       <div className="relative mx-auto flex h-full flex-col justify-center px-3">
         <div className="relative flex w-full items-center pl-1 sm:ml-0 sm:pr-2">
           <div className="relative left-0 flex h-full w-3/4">
@@ -39,13 +40,9 @@ export function TopBar() {
               >
                 <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
               </svg>
-              <input
-                type="text"
-                className="block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-400 opacity-90 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Search"
-              />
               <div className="absolute right-0 mr-2 hidden h-auto rounded-2xl border border-gray-300 px-2 py-1 text-xs text-gray-400 md:block">
-                +
+              <ThemeSwitcher />
+
               </div>
             </div>
           </div>

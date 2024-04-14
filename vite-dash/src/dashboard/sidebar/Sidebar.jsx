@@ -9,7 +9,7 @@ const style = {
     start: "left-0",
     end: "right-0"
   },
-  container: "pb-32 lg:pb-6",
+  container: " dark:bg-neutral-800  bg-white pb-32 lg:pb-6",
   close: "hidden lg:block lg:w-64 lg:z-auto",
   open: "w-8/12 absolute z-40 sm:w-5/12 lg:hidden",
   default: "bg-white h-screen overflow-y-auto top-0 lg:relative"
