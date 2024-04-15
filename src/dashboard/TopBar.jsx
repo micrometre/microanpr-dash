@@ -19,12 +19,12 @@ export function TopBar() {
                 &#8801;
               </button>
             </div>
-            <div className="group relative flex h-full w-36 items-center lg:w-64">
+            <div className="group  flex h-full w-36 items-center lg:w-64">
               <div className="absolute flex h-10 w-auto cursor-pointer items-center justify-center p-3 pr-2 text-sm uppercase text-gray-500 sm:hidden">
               <ThemeSwitcher />
               </div>
 
-              <div className="absolute right-0 mr-2 hidden h-auto rounded-2xl border border-gray-300 px-2 py-1 text-xs text-gray-400 md:block">
+              <div className="absolute right-0 mr-2 hidden h-auto  px-2 py-1 text-xs text-gray-400 md:block">
               <ThemeSwitcher />
 
               </div>
