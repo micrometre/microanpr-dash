@@ -44,7 +44,7 @@ const MultipleFileUploader = () => {
             <form action="">
               <div className="relative mt-6">
                 <label htmlFor="file" className="absolute left-0 ml-1 -translate-y-3 bg-white px-1 text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-3 peer-focus:px-1 peer-focus:text-sm">
-                  Image/Picture
+                  Video
                 </label>
               </div>
               <input type="file" className="mt-10  mb-6 text-lg font-bold text-neutral-800 dark:text-neutral-200 peer w-full border-b placeholder:text-transparent" accept="image/*" id="files" name="file" onChange={uploadToClient} />
@@ -58,7 +58,7 @@ const MultipleFileUploader = () => {
                         type="submit"
                         onClick={handleUpload}
                       >
-                        Start Image lookup
+                        Send Video file to server
                         <Result status={status} />
                       </button>
                     </div>
@@ -68,7 +68,7 @@ const MultipleFileUploader = () => {
                         type="submit"
                         onClick={handleUpload}
                       >
-                        Download CSV file
+                        Download/Export CSV file
                       </button>
                     </div>
                 </div>
