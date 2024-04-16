@@ -1,0 +1,41 @@
+.App {
+    display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 4em;
+      padding: 1em;
+  }
+  button {
+    background-color: #4CAF50;
+    border-radius: 2em;
+    color: white;
+    margin: auto;
+    width: 35%;
+    border: #4CAF50;
+  }
+  
+  .loading {
+    margin-top: 2em;
+    background: #4CAF50;
+    text-align: center;
+    color: #fff;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+  
+  .container {
+    border: 1px solid #282c34;
+    margin: 1em auto auto;
+    padding: 3em 2em 2em;
+  }
+  .inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1em;
+  }
+  .preview {
+    width: 100%;
+  }
+  .dropzone{
+    border: 3px solid gainsboro;
+    padding: 3%;
+  }

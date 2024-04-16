@@ -1,78 +1,49 @@
-import { Upload, Progress } from "antd";
-import React, { useState } from "react";
-import { render } from "react-dom";
-import axios from "axios";
+import React from "react";
+import { useState, useEffect } from "react";
+
+
 
 
 export default function FileUpload(props) {
-    const [defaultFileList, setDefaultFileList] = useState([]);
-    const [progress, setProgress] = useState(0);
-
-    const uploadImage = async options => {
-        const { onSuccess, onError, file, onProgress } = options;
-
-        const fmData = new FormData();
-        const config = {
-            headers: { "content-type": "multipart/form-data" },
-            onUploadProgress: event => {
-                const percent = Math.floor((event.loaded / event.total) * 100);
-                setProgress(percent);
-                if (percent === 100) {
-                    setTimeout(() => setProgress(0), 1000);
-                }
-                onProgress({ percent: (event.loaded / event.total) * 100 });
-            }
-        };
-        fmData.append("image", file);
+  const [image, setImage] = useState(null);
+  const [file, setFile] = useState();
+  const [status, setStatus] = useState("initial")
 
 
-        
-        try {
+  function uploadToClient(event) {
+    if (event.target.files && event.target.files[0]) {
+      const i = event.target.files[0];
+      setFile(URL.createObjectURL(event.target.files[0]));
+      setImage(i);
+    }
+  }
+  async function uploadToServer(event) {
+    const body = new FormData();
+    body.append("file", image);
+          console.log(loading)
+    const response = await fetch("http://127.0.0.1:5000/ ", {
+      method: "POST",
+      body,
 
-            const body = new FormData();
-            body.append("file", file);
-            const res = await fetch("http://127.0.0.1:5000/ ", {
-                method: "POST",
-                body,
-                config
-            });
+    });
+  }
+  return (
+    <div>
+      <label>
+        File progress:
+        <progress value="0" max="100" />
+      </label>
+      <input type="file" accept="image/*" id="files" name="file" onChange={uploadToClient} />
+      <img src={file} />
 
-            onSuccess("Ok");
-            console.log("server res: ", res);
-        } catch (err) {
-            console.log("Eroor: ", err);
-            const error = new Error("Some error");
-            onError({ err });
-        }
-    };
-
-    const handleOnChange = ({ file, fileList, event }) => {
-        // console.log(file, fileList, event);
-        //Using Hooks to update the state to the current filelist
-        setDefaultFileList(fileList);
-        //filelist - [{uid: "-1",url:'Some url to image'}]
-    };
-
-    return (
-        <div class="container">
-            <Upload
-                accept="image/*"
-                customRequest={uploadImage}
-                onChange={handleOnChange}
-                listType="picture-card"
-                defaultFileList={defaultFileList}
-                className="image-upload-grid"
-            // onProgress={({ percent }) => {
-            //   console.log("progre...", percent);
-            //   if (percent === 100) {
-            //     setTimeout(() => setProgress(0), 1000);
-            //   }
-            //   return setProgress(Math.floor(percent));
-            // }}
-            >
-                {defaultFileList.length >= 1 ? null : <div>Upload Button</div>}
-            </Upload>
-            {progress > 0 ? <Progress percent={progress} /> : null}
-        </div>
-    );
+      <button
+        type="submit"
+        onClick={uploadToServer}
+      >
+        Send Video file to server
+      </button>
+      <div>
+      </div>
+    </div>
+  );
 }
