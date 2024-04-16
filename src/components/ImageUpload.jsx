@@ -1,24 +1,22 @@
 import React, { useState } from "react"
 import "./ImageUpload.css"
-const MultipleFileUploader = () => {
-  const [status, setStatus] = useState("initial")
+export default function ImageUpload() {
+  const [status, setStatus] = useState("initial");
   const [image, setImage] = useState(null);
   const [file, setFile] = useState();
 
   function uploadToClient(event) {
     if (event.target.files && event.target.files[0]) {
-      setStatus("initial")
+      setStatus("initial");
       const i = event.target.files[0];
       setFile(URL.createObjectURL(event.target.files[0]));
       setImage(i);
       console.log(status);
     }
   }
-
-
   async function handleUpload(event) {
     if (file) {
-      setStatus("uploading")
+      setStatus("uploading");
       const body = new FormData();
       body.append("file", image);
       try {
@@ -26,11 +24,11 @@ const MultipleFileUploader = () => {
           method: "POST",
           body
         });
-        console.log(response)
-        setStatus("success")
+        console.log(response);
+        setStatus("success");
       } catch (error) {
-        console.error(error)
-        setStatus("fail")
+        console.error(error);
+        setStatus("fail");
       }
     }
   }
@@ -52,25 +50,25 @@ const MultipleFileUploader = () => {
             <div className="">
               <div className="flex">
                 <div className="flex items-center rtl:mr-0 flex-col mr-4 rtl:ml-4">
-                    <div className="flex justify-center items-center pb-4">
-                      <button
-                        className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
-                        type="submit"
-                        onClick={handleUpload}
-                      >
-                        Start Image lookup
-                        <Result status={status} />
-                      </button>
-                    </div>
-                    <div className="flex justify-center items-center">
-                      <button
-                        className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
-                        type="submit"
-                        onClick={handleUpload}
-                      >
-                        Download CSV file
-                      </button>
-                    </div>
+                  <div className="flex justify-center items-center pb-4">
+                    <button
+                      className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
+                      type="submit"
+                      onClick={handleUpload}
+                    >
+                      Start Image lookup
+                      <Result status={status} />
+                    </button>
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <button
+                      className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
+                      type="submit"
+                      onClick={handleUpload}
+                    >
+                      Download CSV file
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -85,7 +83,7 @@ const MultipleFileUploader = () => {
       </div>
 
     </>
-  )
+  );
 }
 
 const Result = ({ status }) => {
@@ -103,4 +101,3 @@ const Result = ({ status }) => {
   }
 }
 
-export default MultipleFileUploader

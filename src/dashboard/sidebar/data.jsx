@@ -12,4 +12,10 @@ export const data = [
     icon: <DocIcon />,
     link: "/admin/image",
   },
+
+  {
+    title: "Video-Lookups",
+    icon: <DocIcon />,
+    link: "/admin/video",
+  },
 ];
