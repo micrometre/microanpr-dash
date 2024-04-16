@@ -11,13 +11,11 @@ const MultipleFileUploader = () => {
     }
   }
 
-  const handleUpload = async () => {
+  async function handleUpload() {
     if (files) {
       setStatus("uploading")
 
-      const formData = new FormData()
-
-      ;[...files].forEach(file => {
+      const formData = new FormData();[...files].forEach(file => {
         formData.append("files", file)
       })
 
