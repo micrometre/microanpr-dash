@@ -62,6 +62,7 @@ const MultipleFileUploader = () => {
                           onClick={handleUpload}
                         >
                           Send Video file to server
+                          <Result status={status} />
                         </button>
                       </div>
                     </div>
