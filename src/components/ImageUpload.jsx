@@ -38,8 +38,7 @@ const MultipleFileUploader = () => {
   return (
     <>
 
-      <section class="relative not-prose scroll-mt-[72px]">
-        <div class="relative mx-auto px-4 lg:py-20 md:px-6 md:py-16 py-12 text-default max-w-5xl">
+        <div class=" dark:bg-neutral-800  bg-white relative mx-auto px-4 lg:py-20 md:px-6 md:py-16 py-12 text-default max-w-5xl">
           <div class="flex flex-col md:flex-row gap-8 md:gap-12">
             <div class="md:basis-1/2 md:py-4 md:self-center">
               <div class="mb-8 md:mb-12 md:mx-auto rtl:text-right text-left">
@@ -54,6 +53,7 @@ const MultipleFileUploader = () => {
                     <div>
                       <div class="flex justify-center items-center">
                         <button
+                        className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
                           type="submit"
                           onClick={handleUpload}
                         >
@@ -74,56 +74,16 @@ const MultipleFileUploader = () => {
             </div>
           </div>
         </div>
-      </section>
-
-
-      <div className=" dark:bg-neutral-800  bg-white">
-        <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="relative isolate overflow-hidden   px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-            <div className="input-group">
-              <label htmlFor="file" className="sr-only">
-                Choose files
-              </label>
-              <input type="file" accept="image/*" id="files" name="file" onChange={uploadToClient} />
-              <img src={file} />
-              <button
-                type="submit"
-                onClick={handleUpload}
-              >
-                Send Video file to server
-              </button>
-              <Result status={status} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="input-group">
-        <div className="flex flex-col flex-wrap sm:flex-row">
-          <div className="w-full sm:w-1/2 xl:w-1/3">
-            <div class="mb-4">
-              <label htmlFor="file" className="sr-only">
-                Choose files
-              </label>
-              <input type="file" accept="image/*" id="files" name="file" onChange={uploadToClient} />
-              <img src={file} />
-              <button
-                type="submit"
-                onClick={handleUpload}
-              >
-                Send Video file to server
-              </button>
-              <Result status={status} />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   )
 }
 
 const Result = ({ status }) => {
   if (status === "success") {
-    return <p>✅ Uploaded successfully!</p>
+    return <p 
+    className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#3715fa] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
+    
+    >✅ Uploaded successfully!</p>
   } else if (status === "fail") {
     return <p>❌ Upload failed!</p>
   } else if (status === "uploading") {
