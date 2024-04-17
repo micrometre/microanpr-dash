@@ -41,14 +41,29 @@ const MultipleFileUploader = () => {
       <div className=" dark:bg-neutral-800  bg-white relative mx-auto px-4 lg:py-20 md:px-6 md:py-16 py-12 text-default max-w-5xl">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">
           <div className="md:basis-1/2 md:py-4 md:self-center">
-            <form action="">
+            <form action="POST">
               <div className="relative mt-6">
                 <label htmlFor="file" className="absolute left-0 ml-1 -translate-y-3 bg-white px-1 text-sm duration-100 ease-linear peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:ml-1 peer-focus:-translate-y-3 peer-focus:px-1 peer-focus:text-sm">
                   Video
                 </label>
               </div>
-              <input type="file" className="mt-10  mb-6 text-lg font-bold text-neutral-800 dark:text-neutral-200 peer w-full border-b placeholder:text-transparent" accept="image/*" id="files" name="file" onChange={uploadToClient} />
+              <input type="file"
+               className="mt-10  mb-6 text-lg font-bold text-neutral-800 dark:text-neutral-200 peer w-full border-b placeholder:text-transparent" accept="image/*" id="files" name="file" onChange={uploadToClient} 
+               />
+              <input 
+              className="mt-10  mb-6 text-lg font-bold text-neutral-800 dark:text-neutral-200 peer w-full border-b placeholder:text-transparent"
+              onChange={uploadToClient} 
+              type="file" 
+              accept="video/*" 
+              id="video-files" 
+              name="file" 
+              />
+                    <input onclick="update();return false;" type="submit" />
             </form>
+            <video controls="controls" preload="preload" width="320" height="240">
+                    <source src={file} type="video/mp4">
+                    </source>
+                </video>
             <div className="">
               <div className="flex">
                 <div className="flex items-center rtl:mr-0 flex-col mr-4 rtl:ml-4">
@@ -58,7 +73,7 @@ const MultipleFileUploader = () => {
                       type="submit"
                       onClick={handleUpload}
                     >
-                      Send Video file to server
+                      Start Video lookup
                       <Result status={status} />
                     </button>
                   </div>
@@ -68,7 +83,7 @@ const MultipleFileUploader = () => {
                       type="submit"
                       onClick={handleUpload}
                     >
-                      Download/Export CSV file
+                      Download CSV file
                     </button>
                   </div>
                 </div>
