@@ -32,7 +32,9 @@ export default function ImageUpload() {
       }
     }
   }
-
+	function clearFiles() {
+		setImage(null);
+	}
   return (
     <>
 
@@ -68,6 +70,7 @@ export default function ImageUpload() {
                     >
                       Download CSV file
                     </button>
+		
                   </div>
                 </div>
               </div>

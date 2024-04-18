@@ -6,7 +6,6 @@ export default function FilePreviewer() {
 	const [videoPreview, setVideoPreview] = useState(null);
 	const [file, setFile] = useState();
 	const [image, setImage] = useState(null);
-	const [status, setStatus] = useState("initial");
 
 	// FIle Picker Ref because we are not useing the standard File picker input
 	const filePicekerRef = useRef(null);
@@ -41,27 +40,6 @@ export default function FilePreviewer() {
 			body
 		});
 	};
-
-  async function handleUpload(event) {
-    if (file) {
-      setStatus("uploading");
-      const body = new FormData();
-      body.append("file", image);
-      try {
-        const response = await fetch("http://127.0.0.1:5000/ ", {
-          method: "POST",
-          body
-        });
-        console.log(response);
-        setStatus("success");
-      } catch (error) {
-        console.error(error);
-        setStatus("fail");
-      }
-    }
-  }
-
-
 	function clearFiles() {
 		setImagePreview(null);
 		setVideoPreview(null);
@@ -88,7 +66,7 @@ export default function FilePreviewer() {
 					</button>
 				)}
 			</div>
-			<button type="submit"onClick={handleUpload}	>
+			<button type="submit"onClick={uploadToServer}	>
 				<p>	Send Video file to server	</p>
 			</button>
 			<div className="preview">
