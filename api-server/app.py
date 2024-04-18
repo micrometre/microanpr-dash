@@ -3,7 +3,7 @@ from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
 import logging
-
+from datetime import date 
 UPLOAD_FOLDER = '../public/uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 logging.getLogger('flask_cors').level = logging.DEBUG
@@ -45,3 +45,10 @@ def upload_file():
       <input type=submit value=Upload>
     </form>
     '''
+
+
+@app.route('/login')
+def login_page():
+    return {
+        "token": 'test123'
+    }
