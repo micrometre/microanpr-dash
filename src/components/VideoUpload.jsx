@@ -18,6 +18,7 @@ export default function FilePreviewer() {
 		// Gettting Selected File (user can select multiple but we are choosing only one)
 		const selectedFile = e.target.files[0];
 		if (selectedFile) {
+			setStatus("initial");
 			reader.readAsDataURL(selectedFile);
 			setFile(URL.createObjectURL(e.target.files[0]));
 			setImage(selectedFile);
@@ -42,24 +43,24 @@ export default function FilePreviewer() {
 		});
 	};
 
-  async function handleUpload(event) {
-    if (file) {
-      setStatus("uploading");
-      const body = new FormData();
-      body.append("file", image);
-      try {
-        const response = await fetch("http://127.0.0.1:5000/ ", {
-          method: "POST",
-          body
-        });
-        console.log(response);
-        setStatus("success");
-      } catch (error) {
-        console.error(error);
-        setStatus("fail");
-      }
-    }
-  }
+	async function handleUpload(event) {
+		if (file) {
+			setStatus("uploading");
+			const body = new FormData();
+			body.append("file", image);
+			try {
+				const response = await fetch("http://127.0.0.1:5000/ ", {
+					method: "POST",
+					body
+				});
+				console.log(response);
+				setStatus("success");
+			} catch (error) {
+				console.error(error);
+				setStatus("fail");
+			}
+		}
+	}
 
 
 	function clearFiles() {
@@ -69,6 +70,8 @@ export default function FilePreviewer() {
 
 	return (
 		<div>
+			<Result status={status} />
+
 			<h1>Preview Image/Video</h1>
 
 			<div className="btn-container">
@@ -88,7 +91,7 @@ export default function FilePreviewer() {
 					</button>
 				)}
 			</div>
-			<button type="submit"onClick={handleUpload}	>
+			<button type="submit" onClick={handleUpload}	>
 				<p>	Send Video file to server	</p>
 			</button>
 			<div className="preview">
@@ -97,4 +100,18 @@ export default function FilePreviewer() {
 			</div>
 		</div>
 	);
+}
+const Result = ({ status }) => {
+	if (status === "success") {
+		return <p
+			className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#3715fa] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
+
+		>✅ Uploaded successfully!</p>
+	} else if (status === "fail") {
+		return <p>❌ Upload failed!</p>
+	} else if (status === "uploading") {
+		return <p>⏳ Uploading started...</p>
+	} else {
+		return null
+	}
 }
