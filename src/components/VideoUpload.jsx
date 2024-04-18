@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "./VideoUpload.css"
-export default function FilePreviewer() {
+export default function VideoUpload(){
 	// FIles States
 	const [imagePreview, setImagePreview] = useState(null);
 	const [videoPreview, setVideoPreview] = useState(null);
@@ -38,7 +38,7 @@ export default function FilePreviewer() {
 			const body = new FormData();
 			body.append("file", image);
 			try {
-				const response = await fetch("http://127.0.0.1:5000/ ", {
+				const response = await fetch("http://192.168.1.122:5000", {
 					method: "POST",
 					body
 				});
