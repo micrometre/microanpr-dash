@@ -47,7 +47,10 @@ export default function ImageUpload() {
                   Image/Picture
                 </label>
               </div>
+              <div className="btn-container">
+
               <input type="file" className="mt-10  mb-6 text-lg font-bold text-neutral-800 dark:text-neutral-200 peer w-full border-b placeholder:text-transparent" accept="image/*" id="files" name="file" onChange={uploadToClient} />
+             </div>
             </form>
             <div className="">
               <div className="flex">

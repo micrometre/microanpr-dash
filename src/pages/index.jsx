@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>Pages Index</div>
+    <div>MicroANPR</div>
   )
 }
 

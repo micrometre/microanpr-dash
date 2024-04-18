@@ -10,11 +10,9 @@ export default function FilePreviewer() {
 
 	// FIle Picker Ref because we are not useing the standard File picker input
 	const filePicekerRef = useRef(null);
-
 	function previewFile(e) {
 		// Reading New File (open file Picker Box)
 		const reader = new FileReader();
-
 		// Gettting Selected File (user can select multiple but we are choosing only one)
 		const selectedFile = e.target.files[0];
 		if (selectedFile) {
@@ -23,7 +21,6 @@ export default function FilePreviewer() {
 			setFile(URL.createObjectURL(e.target.files[0]));
 			setImage(selectedFile);
 		}
-
 		// As the File loaded then set the stage as per the file type
 		reader.onload = (readerEvent) => {
 			if (selectedFile.type.includes("image")) {
@@ -33,15 +30,7 @@ export default function FilePreviewer() {
 			}
 		};
 	}
-	const uploadToServer = async (event) => {
-		const body = new FormData();
-		body.append("file", image);
-		const response = await fetch("http://127.0.0.1:5000/ ", {
 
-			method: "POST",
-			body
-		});
-	};
 
 	async function handleUpload(event) {
 		if (file) {
