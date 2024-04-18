@@ -55,6 +55,7 @@ export default function FilePreviewer() {
 	function clearFiles() {
 		setImagePreview(null);
 		setVideoPreview(null);
+		setStatus(null)
 	}
 
 	return (

@@ -20,7 +20,7 @@ export default function ImageUpload() {
       const body = new FormData();
       body.append("file", image);
       try {
-        const response = await fetch("http://127.0.0.1:5000/ ", {
+        const response = await fetch(" http://192.168.1.122:5000/", {
           method: "POST",
           body
         });
