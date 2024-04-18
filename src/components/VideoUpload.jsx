@@ -70,33 +70,65 @@ export default function FilePreviewer() {
 
 	return (
 		<div>
-			<Result status={status} />
 
-			<h1>Preview Image/Video</h1>
 
-			<div className="btn-container">
-				<input
-					ref={filePicekerRef}
-					accept="image/*, video/*"
-					onChange={previewFile}
-					type="file"
-					hidden
-				/>
-				<button className="btn" onClick={() => filePicekerRef.current.click()}>
-					Choose
-				</button>
-				{(imagePreview || videoPreview) && (
-					<button className="btn" onClick={clearFiles}>
-						x
-					</button>
-				)}
-			</div>
-			<button type="submit" onClick={handleUpload}	>
-				<p>	Send Video file to server	</p>
-			</button>
-			<div className="preview">
-				{imagePreview != null && <img src={imagePreview} alt="" />}
-				{videoPreview != null && <video controls src={videoPreview}></video>}
+
+			<div className=" dark:bg-neutral-800  bg-white relative mx-auto px-4 lg:py-20 md:px-6 md:py-16 py-12 text-default max-w-5xl">
+				<div className="flex flex-col md:flex-row gap-8 md:gap-12">
+					<div className="md:basis-1/2 md:py-4 md:self-center">
+						<div className="flex justify-center items-center pb-4">
+							<div className="btn-container">
+								<input
+									ref={filePicekerRef}
+									accept="image/*, video/*"
+									onChange={previewFile}
+									type="file"
+									hidden
+								/>
+								<button className="btn" onClick={() => filePicekerRef.current.click()}>
+									Choose
+								</button>
+								{(imagePreview || videoPreview) && (
+									<button className="btn" onClick={clearFiles}>
+										x
+									</button>
+								)}
+							</div>
+						</div>
+						<button
+							className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
+							type="submit"
+							onClick={handleUpload}
+						>
+							Start Video lookup
+							<Result status={status} />
+						</button>
+
+						<div className="">
+							<div className="flex">
+								<div className="mt-4 flex items-center rtl:mr-0 flex-col mr-4 rtl:ml-4">
+
+									<div className="flex justify-center items-center">
+										<button
+											className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#fa5a15] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
+											type="submit"
+											onClick={handleUpload}
+										>
+											Download CSV file
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="relative md:basis-1/2">
+						<div className="preview">
+							<Result status={status} />
+							{imagePreview != null && <img src={imagePreview} alt="" />}
+							{videoPreview != null && <video controls src={videoPreview}></video>}
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
