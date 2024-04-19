@@ -46,8 +46,7 @@ def upload_file():
     </form>
     '''
 
-
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login_page():
     return {
         "token": 'test123'
