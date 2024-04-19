@@ -1,8 +1,8 @@
 import React from 'react'
-
+import LogOut from '../components/LogOut'
 const Home = () => {
   return (
-    <div>MicroANPR</div>
+      <LogOut/>
   )
 }
 

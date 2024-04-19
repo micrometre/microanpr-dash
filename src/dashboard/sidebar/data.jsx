@@ -4,7 +4,7 @@ export const data = [
    {
     title: "Dashboard",
     icon: <DocIcon />,
-    link: "/home",
+    link: "/",
   },
 
   {

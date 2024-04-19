@@ -3,7 +3,6 @@ import { SidebarItems } from "./SidebarItems"
 import { SidebarHeader } from "./SidebarHeader"
 import { useDashboardContext } from "../Provider"
 import ThemeSwitcher from '../../components/ThemeSwitcher';
-
 const style = {
   mobileOrientation: {
     start: "left-0",
