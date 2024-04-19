@@ -1,7 +1,11 @@
 import { DocIcon } from "../icons/DocIcon";
 
 export const data = [
- 
+   {
+    title: "Dashboard",
+    icon: <DocIcon />,
+    link: "/home",
+  },
 
   {
     title: "Image-Lookups",
