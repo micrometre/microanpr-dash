@@ -28,13 +28,17 @@ export default function Login({ setToken }) {
 
   return (
     <div className="login-wrapper bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 ">
-      <div className=' text-lg font-bold text-neutral-800 dark:text-neutral-200'>
+      <div
+        className=' text-lg font-bold text-neutral-800 dark:text-neutral-200'
+      >
 
         <h1>Please Log In</h1>
         <form onSubmit={handleSubmit}>
           <label>
             <p>Username</p>
-            <input type="text" onChange={e => setUserName(e.target.value)} />
+            <input
+              className=' text-lg font-bold text-neutral-900 dark:text-neutral-900'
+              type="text" onChange={e => setUserName(e.target.value)} />
           </label>
           <label>
             <p>Password</p>
