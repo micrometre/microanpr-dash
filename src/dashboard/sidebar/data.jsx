@@ -18,4 +18,10 @@ export const data = [
     icon: <DocIcon />,
     link: "/admin/video",
   },
+
+  {
+    title: "Help",
+    icon: <DocIcon />,
+    link: "/admin/help",
+  },
 ];

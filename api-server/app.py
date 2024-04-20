@@ -4,6 +4,8 @@ from werkzeug.utils import secure_filename
 from flask_cors import CORS
 import logging
 from datetime import date 
+import subprocess
+
 UPLOAD_FOLDER = '../public/uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 logging.getLogger('flask_cors').level = logging.DEBUG
@@ -21,20 +23,23 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print(filename)
+            alpr_file = (os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            alpr_arg1 = "-c"
+            alpr_arg2 = "gb"
+            alpr_arg3 = "-j"
+            alpr_arg4 = "-n 1"
+            output = subprocess.check_output(['alpr',str(alpr_file), str(alpr_arg1), str(alpr_arg2), str(alpr_arg3), str(alpr_arg4)]).decode('utf-8')
+            print(output)
             return redirect(url_for('upload_file', name=filename))
     return '''
     <!doctype html>

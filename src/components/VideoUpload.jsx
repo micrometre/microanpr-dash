@@ -39,7 +39,7 @@ export default function VideoUpload(){
 			const body = new FormData();
 			body.append("file", image);
 			try {
-				const response = await fetch("http://192.168.56.10:5000/upload_video/ ", {
+				const response = await fetch("http://192.168.1.197:5000/upload_video/", {
 					method: "POST",
 					body
 				});
