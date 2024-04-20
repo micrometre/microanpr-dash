@@ -36,11 +36,11 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             alpr_file = (os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            alpr_arg1 = "-c"
-            alpr_arg2 = "gb"
-            alpr_arg3 = "-j"
-            alpr_arg4 = "-n 1"
-            output = subprocess.check_output(['alpr',str(alpr_file), str(alpr_arg1), str(alpr_arg2), str(alpr_arg3), str(alpr_arg4)]).decode('utf-8')
+            alpr_arg1 = "-i"
+            alpr_arg2 = "-c"
+            alpr_arg3 = "copy"
+            alpr_arg4 = "out.mkv"
+            output = subprocess.check_output(['ffmpeg',str(alpr_arg1), str(alpr_file), str(alpr_arg2), str(alpr_arg3), str(alpr_arg4) ]).decode('utf-8')
             print(output)
             return redirect(url_for('upload_file', name=filename))
     return '''
