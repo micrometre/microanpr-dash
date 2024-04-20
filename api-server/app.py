@@ -1,10 +1,12 @@
 import os
-from flask import Flask, flash, request, redirect, url_for
+from flask import Flask, Response, flash, request, redirect, url_for, send_file
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
 import logging
 from datetime import date 
 import subprocess
+import os
+import re
 
 UPLOAD_FOLDER = '../public/uploads'
 ALLOWED_EXTENSIONS = {'mp4', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
@@ -56,3 +58,10 @@ def login_page():
     return {
         "token": 'test123'
     }
+
+
+@app.route("/video")
+def video():
+    data = "../public/uploads/alprVideo.mp4"
+    print(type(data))
+    return send_file(data)
