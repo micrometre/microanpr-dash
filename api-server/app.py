@@ -37,10 +37,16 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             alpr_file = (os.path.join(app.config['UPLOAD_FOLDER'], filename))
             alpr_arg1 = "-i"
-            alpr_arg2 = "-c"
-            alpr_arg3 = "copy"
-            alpr_arg4 = "out.mkv"
-            output = subprocess.check_output(['ffmpeg',str(alpr_arg1), str(alpr_file), str(alpr_arg2), str(alpr_arg3), str(alpr_arg4) ]).decode('utf-8')
+            alpr_arg2 = "-listen"
+            alpr_arg3 = "1"
+            alpr_arg4 = "-f"
+            alpr_arg5 = "mp4"
+            alpr_arg6 = "-movflags"
+            alpr_arg7 = "frag_keyframe+empty_moov"
+            alpr_arg8 = "http://192.168.1.122:5001"
+            output = subprocess.check_output(['ffmpeg',str(alpr_arg1), str(alpr_file), str(alpr_arg2), str(alpr_arg3), str(alpr_arg4), str(alpr_arg5), 
+            str(alpr_arg6), str(alpr_arg7), str(alpr_arg8)]).decode('utf-8')
+            #ffmpeg -i alprVideo_1.mp4 -listen 1 -f mp4 -movflags frag_keyframe+empty_moov http://192.168.1.122:5001
             print(output)
             return redirect(url_for('upload_file', name=filename))
     return '''
