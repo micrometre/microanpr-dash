@@ -2,7 +2,15 @@ import { useState, useRef } from "react";
 import "./VideoUpload.css"
 import ExportVideoDb from "./ExportVideoDb";
 import VisdeoSse from "./VisdeoSse";
-export default function VideoUpload(){
+import ImagesSse from "./ImagesSse";
+
+
+function onError(e) {
+	e.target.src =
+		"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/No_sign.svg/192px-No_sign.svg.png";
+}
+
+export default function VideoUpload() {
 	// FIles States
 	const [imagePreview, setImagePreview] = useState(null);
 	const [videoPreview, setVideoPreview] = useState(null);
@@ -102,7 +110,7 @@ export default function VideoUpload(){
 								<div className="mt-4 flex items-center rtl:mr-0 flex-col mr-4 rtl:ml-4">
 
 									<div className="flex justify-center items-center">
-										<ExportVideoDb/>
+										<ExportVideoDb />
 
 									</div>
 								</div>
@@ -111,6 +119,8 @@ export default function VideoUpload(){
 					</div>
 					<div className="relative md:basis-1/2">
 						<div className="preview">
+							<VisdeoSse />
+							<ImagesSse />
 							<Result status={status} />
 							{imagePreview != null && <img src={imagePreview} alt="" />}
 							{videoPreview != null && <video controls src={videoPreview}></video>}
@@ -118,7 +128,6 @@ export default function VideoUpload(){
 					</div>
 				</div>
 			</div>
-			<VisdeoSse/>
 		</div>
 	);
 }

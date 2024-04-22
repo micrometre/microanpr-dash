@@ -26,7 +26,6 @@ const Content = props => {
              ${sidebarOpen ? style.open : style.close}`}
         >
           <TopBar />
-        <VisdeoSse />
           <main className={style.main}>{props.children}</main>;
         </div>
 

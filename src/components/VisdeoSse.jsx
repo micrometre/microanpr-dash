@@ -55,8 +55,8 @@ export default function VisdeoSse() {
                                             <span className="block text-lg font-bold text-neutral-800 dark:text-neutral-200">
                                                 <p className="font-bold">
 
-                                                    <p>{state}</p>
-                                                    Image Lookup Result
+                                                    {state}
+
                                                 </p>
                                             </span>
                                         </span>
