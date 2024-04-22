@@ -44,7 +44,7 @@ export default function VisdeoSse() {
                     <div className="flex h-auto">
                         <div className="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
                             <a href={state}>
-                                <p className="font-bold">
+                                <p className="text-neutral-800 dark:text-neutral-200 font-bold">
                                     {state}
                                 </p>
                             </a>

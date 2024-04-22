@@ -86,14 +86,16 @@ export default function VideoUpload() {
 									type="file"
 									hidden
 								/>
-								<button className="btn" onClick={() => filePicekerRef.current.click()}>
-									Choose
-								</button>
+								<div>
+									<button className="btn" onClick={() => filePicekerRef.current.click()}>
+										Choose
+									</button>
 								{(imagePreview || videoPreview) && (
 									<button className="btn" onClick={clearFiles}>
 										x
 									</button>
 								)}
+								</div>
 							</div>
 						</div>
 						<button
@@ -134,7 +136,7 @@ export default function VideoUpload() {
 const Result = ({ status }) => {
 	if (status === "success") {
 		return <p
-			className="roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#3715fa] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
+			className="dark:text-neutral-200 roup inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-[#3715fa] px-4 py-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-[#e14d0b] focus-visible:ring active:bg-[#e14d0b] disabled:pointer-events-none disabled:opacity-50 dark:ring-zinc-200 dark:focus:outline-none 2xl:text-base"
 
 		>✅ Uploaded successfully!</p>
 	} else if (status === "fail") {
