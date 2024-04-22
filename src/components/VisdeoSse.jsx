@@ -9,10 +9,10 @@ export default function VisdeoSse() {
         const evtSource = new EventSource("http://192.168.1.197:5000/alprd1/alprd1");
         evtSource.addEventListener("myEventName", (event) => {
             // the event name here must be the same as in the API
-            const myEvent = JSON.parse(event.data);
+            const myEvent = event.data;
             console.log(myEvent);
             setState(myEvent);
-            console.log(JSON.parse(event.data));
+            console.log(myEvent);
         });
 
 

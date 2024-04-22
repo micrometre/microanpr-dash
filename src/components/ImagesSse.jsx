@@ -9,15 +9,15 @@ export default function VisdeoSse() {
         const evtSource = new EventSource("http://192.168.1.197:5000/alprd1_images");
         evtSource.addEventListener("myEventName", (event) => {
             // the event name here must be the same as in the API
-            const myEvent = JSON.parse(event.data);
+            const myEvent = event.data;
             console.log(myEvent);
             setState(myEvent);
-            console.log(JSON.parse(event.data));
+            console.log(event.data);
         });
 
 
         evtSource.onmessage = (event) => {
-            const myEvent = JSON.parse(event.data);
+            const myEvent = (event.data);
             console.log(myEvent);
             setState(myEvent);
         };
@@ -44,22 +44,8 @@ export default function VisdeoSse() {
                     <div className="flex h-auto">
                         <div className="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
                             <a href={state}>
-
-
-                                <img
-                                className='"object-contain h-48 w-96'
-                                    src={state}
-                                    onError={({ currentTarget }) => {
-                                        currentTarget.onerror = null; // prevents looping
-                                        currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/No_sign.svg/192px-No_sign.svg.png ";
-                                    }}
-                                />
-
-                         
                                 <p className="font-bold">
-
                                     {state}
-
                                 </p>
                             </a>
                         </div>
