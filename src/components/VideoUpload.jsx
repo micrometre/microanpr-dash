@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import "./VideoUpload.css"
 import ExportVideoDb from "./ExportVideoDb";
+import VisdeoSse from "./VisdeoSse";
 export default function VideoUpload(){
 	// FIles States
 	const [imagePreview, setImagePreview] = useState(null);
@@ -117,6 +118,7 @@ export default function VideoUpload(){
 					</div>
 				</div>
 			</div>
+			<VisdeoSse/>
 		</div>
 	);
 }

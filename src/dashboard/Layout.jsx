@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { Overlay } from "./Overlay";
 import { Sidebar } from "./sidebar/Sidebar";
 import { DashboardProvider, useDashboardContext } from "./Provider";
-
+import VisdeoSse from "../components/VisdeoSse";
 
 
 const style = {
@@ -26,6 +26,7 @@ const Content = props => {
              ${sidebarOpen ? style.open : style.close}`}
         >
           <TopBar />
+        <VisdeoSse />
           <main className={style.main}>{props.children}</main>;
         </div>
 
