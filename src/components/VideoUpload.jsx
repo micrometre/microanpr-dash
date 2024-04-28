@@ -140,9 +140,14 @@ const Result = ({ status }) => {
 
 		>✅ Uploaded successfully!</p>
 	} else if (status === "fail") {
-		return <p>❌ Upload failed!</p>
+		return <p
+		className="block text-lg font-bold text-neutral-800 dark:text-neutral-200"
+		>❌ Upload failed!</p>
 	} else if (status === "uploading") {
-		return <p>⏳ Uploading started...</p>
+		return <p
+		className="block text-lg font-bold text-neutral-800 dark:text-neutral-200"
+		
+		>⏳ Uploading started...</p>
 	} else {
 		return null
 	}

@@ -43,7 +43,8 @@ export default function VisdeoSse() {
                 <div className="mb-4">
                     <div className="flex h-auto">
                         <div className="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
-                            <a href={state}>
+                            <a  href={state} target='_blank' >
+                            <img src={state} alt="" />
                                 <p className="text-neutral-800 dark:text-neutral-200 font-bold">
                                     {state}
                                 </p>
