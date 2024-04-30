@@ -1,49 +1,46 @@
 "use client";
-import { useState, useEffect } from "react";
+import React from 'react'
+import { useEffect, useState } from 'react'
 
 
-
-
-
-export default function DataTable() {
-  const [items, setItems] = useState([]);
+export default function alprdData() {
+  const [state, setState] = useState([]);
+  const alprdKeys = Object.keys(state);
+  const alprdValues = Object.values(state);
+  async function getData() {
+    const res = await fetch('http://192.168.1.197:5000/alprd1/db2');
+    const data = await res.json();
+    setState(data);
+  }
   useEffect(() => {
-    fetch("http://192.168.1.197:5000/alprd1/db", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      }, items
-    })
-      .then((res) => res.json())
-      .then((data) => setItems(data));
-  }, []);
-  console.log(items);
-  return (
-    <div>
-      {items.map((plates, index) => {
-        return (
-          <div key={index}>
-            <div className="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 flex flex-col flex-wrap sm:flex-row">
-              <div className="w-full sm:w-1/4 xl:w-1/4">
-                <div className="hover:bg-neutral-300 dark:hover:bg-neutral-900  rounded-xl p-4 text-start outline-none " >
-                  <p className="font-bold text-neutral-800 dark:text-neutral-200">
-                    {plates[0]}
-                  </p>
-                </div>
-              </div>
-              <div className="w-full sm:w-1/2 xl:w-1/2">
-                <div className="hover:bg-neutral-300 dark:hover:bg-neutral-900  p-4 text-start outline-none " >
-                  <p className="text-xs  text-blue-800 dark:text-blue-400">
-                    <a href={plates[1]} target="_blank" rel="noopener noreferrer">{plates[1]}</a>
-                  </p>
-                </div>
-              </div>
+    getData();
+  }, [])
+  console.log(alprdKeys)
+  const collection = alprdValues.map((plate, index) => {
+    return (
+      <div key={index}>
+        <div className="mt-6 flow-root">
+          <div className="inline-block min-w-full align-middle">
+            <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+              <table className="hidden min-w-full text-gray-900 md:table">
+                <tbody className="bg-white">
+                  <tr className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
+                    <td>{plate}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        );
-      })}
-    </div>
+        </div>
+      </div>
 
+    );
+  });
+
+  return (
+
+    <>
+      {collection} {/* Render the collection of items */}
+    </>
   );
-
 }
