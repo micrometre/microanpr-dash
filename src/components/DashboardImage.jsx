@@ -4,11 +4,21 @@ import React from 'react'
 export default function DashboardImage() {
     return (
         <div>
-            <div className="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 flex flex-col flex-wrap sm:flex-row">
-                <div className="w-full sm:w-1/2 xl:w-1/3">
-                    <div className="mb-4">
-                        <div className="flex h-auto">
-                            <div className="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
+            <div 
+            className="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 flex flex-col flex-wrap sm:flex-row"
+            >
+                <div
+                 className="w-full sm:w-1/2 xl:w-1/3"
+                 >
+                    <div
+                     className="mb-4"
+                     >
+                        <div
+                         className="flex h-auto"
+                         >
+                            <div
+                             className="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700"
+                             >
                                 <a href="">
                                     <button type="button" className="hover:bg-neutral-300 dark:hover:bg-neutral-900  rounded-xl p-4 text-start outline-none " >
                                         <span className="flex">
@@ -18,8 +28,11 @@ export default function DashboardImage() {
                                                 </path>
                                             </svg>
                                             <span className="ms-6 grow">
-                                                <span className="block text-lg font-bold text-neutral-800 dark:text-neutral-200">
-                                                    <p className="font-bold">
+                                                <span 
+                                                className="block text-lg font-bold text-neutral-800 dark:text-neutral-200"
+                                                >
+                                                    <p
+                                                     className="font-bold">
                                                         Image Lookup
                                                     </p>
                                                 </span>

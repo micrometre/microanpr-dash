@@ -3,7 +3,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 
 
-export default function alprdDataTable() {
+export default function alprdData() {
   const [state, setState] = useState([]);
   const alprdKeys = Object.keys(state);
   const alprdValues = Object.values(state);
@@ -16,20 +16,26 @@ export default function alprdDataTable() {
     getData();
   }, [])
   console.log(alprdKeys)
+  const alprdPlates = alprdKeys.map((plate, index) => {
+    return (
+      <div key={index}>
+        <p>{plate}</p>
+      </div>
+    );
+  });
+  const alprdimages = alprdValues.map((img, index) => {
+    return (
+      <div key={index}>
+        <p>{img}</p>
+      </div>
+    );
+  });
+
   return (
     <div>
-      <div>
-        {Object.keys(state).map((key, i) => (
-          <p key={i}>
-            <span> {i}</span>
-            <span> {key}</span>
-            <span className='p-10'>{state[key]}</span>
-          </p>
-        ))}
-      </div>
+      {alprdPlates},   {alprdimages}
     </div>
   );
-
 }
 
 
