@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react'
 
 export default function alprdDataTable() {
   const [state, setState] = useState([]);
-  const alprdKeys = Object.keys(state);
-  const alprdValues = Object.values(state);
   async function getData() {
     const res = await fetch('http://192.168.1.197:5000/alprd1/db2');
     const data = await res.json();
@@ -15,15 +13,28 @@ export default function alprdDataTable() {
   useEffect(() => {
     getData();
   }, [])
-  console.log(alprdKeys)
   return (
     <div>
       <div>
         {Object.keys(state).map((key, i) => (
-          <p key={i}>
-            <span> {i}</span>
-            <span> {key}</span>
-            <span className='p-10'>{state[key]}</span>
+          <p className="text-neutral-800 dark:text-neutral-200 ]" key={i}  >
+            <span className="">
+              {i}
+              <span className="ms-6 grow">
+                <span 
+                >
+                  {key}
+                </span>
+              </span>
+              <span className="ms-6 grow">
+                <span 
+                >
+                  <a href={state[key]} target='_blank'>
+                  {state[key]}
+                  </a>
+                </span>
+              </span>
+            </span>
           </p>
         ))}
       </div>
