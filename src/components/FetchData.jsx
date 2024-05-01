@@ -21,16 +21,16 @@ export default function alprdDataTable() {
             <span className="">
               {i}
               <span className="ms-6 grow">
-                <span 
+                <span
                 >
                   {key}
                 </span>
               </span>
               <span className="ms-6 grow">
-                <span 
+                <span
                 >
                   <a href={state[key]} target='_blank'>
-                  {state[key]}
+                    {state[key]}
                   </a>
                 </span>
               </span>
@@ -45,3 +45,33 @@ export default function alprdDataTable() {
 
 
 
+
+const UserForm = props => {
+  const [user, setUser] = useState(props.user)
+
+  const submit = e => {
+    e.preventDefault()
+    fetch('/api', {
+      method: 'POST',
+      body: JSON.stringify({ user }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(res => res.json())
+      .then(json => setUser(json.user))
+  }
+
+  return (
+    <>
+
+      <form action="http://192.168.56.10:5000/alprd1/check_key" method="get"
+      >
+        <div className="form-label-group">
+          <label for="key">alpr key:</label>
+        </div>
+      </form>
+
+
+
+    </>
+  )
+}
