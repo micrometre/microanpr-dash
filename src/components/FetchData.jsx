@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react'
 export default function alprdDataTable() {
   const [state, setState] = useState([]);
   async function getData() {
-    const res = await fetch('http://192.168.1.197:5000/alprd1/db2');
+    //const res = await fetch('http://192.168.1.197:5000/alprd1/db2');
+    const res = await fetch('http://192.168.1.122:5000/alprd1/db');
     const data = await res.json();
     setState(data);
   }

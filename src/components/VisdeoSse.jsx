@@ -6,7 +6,8 @@ export default function VisdeoSse() {
     const [state, setState] = useState([]);
 
     useEffect(() => {
-        const evtSource = new EventSource("http://192.168.1.197:5000/alprd1/alprd1");
+        //const evtSource = new EventSource("http://192.168.1.197:5000/alprd1/alprd1");
+        const evtSource = new EventSource("http://192.168.1.122:5000/alprd1/alprd1");
         evtSource.addEventListener("myEventName", (event) => {
             // the event name here must be the same as in the API
             const myEvent = event.data;
