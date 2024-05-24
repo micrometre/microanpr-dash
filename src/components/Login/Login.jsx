@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
+const logintUrl = import.meta.env.VITE_APP_LOGIN
 
 async function loginUser(credentials) {
-  return fetch('http://192.168.1.197:5000/login', {
+  return fetch(logintUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
