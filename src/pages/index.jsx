@@ -1,10 +1,10 @@
 import React from 'react'
 import LogOut from '../components/LogOut'
 
-console.log(import.meta.env.VITE_APP_TITLE); // "My App"
-console.log(import.meta.env.VITE_APP_URL); // "My App"
 
+let hostUrl = import.meta.env.VITE_APP_LAPTOP_URL
 
+console.log(hostUrl);
 
 const Home = () => {
   return (

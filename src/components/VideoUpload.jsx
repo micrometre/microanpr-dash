@@ -3,12 +3,7 @@ import "./VideoUpload.css"
 import ExportVideoDb from "./ExportVideoDb";
 import VisdeoSse from "./VisdeoSse";
 import ImagesSse from "./ImagesSse";
-
-
-function onError(e) {
-	e.target.src =
-		"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/No_sign.svg/192px-No_sign.svg.png";
-}
+const videoUploadUrl = import.meta.env.VITE_APP_VIDEO_UPLOAD
 
 export default function VideoUpload() {
 	// FIles States
@@ -48,9 +43,8 @@ export default function VideoUpload() {
 			const body = new FormData();
 			body.append("file", image);
 			try {
-				//const response = await fetch("http://192.168.1.122:5000", {
-				//const response = await fetch("http://192.168.1.197:5000/upload_video/", {
-				const response = await fetch("http://192.168.1.122:5000/upload_video/", {
+				const response = await fetch(videoUploadUrl, {
+				//const response = await fetch("http://192.168.1.122:5000/upload_video/", {
 					method: "POST",
 					body
 				});

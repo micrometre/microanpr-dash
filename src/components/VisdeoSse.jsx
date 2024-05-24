@@ -1,17 +1,17 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+const videoSsetUrl = import.meta.env.VITE_APP_VIDEO_SSE
 
 
 export default function VisdeoSse() {
     const [state, setState] = useState([]);
 
     useEffect(() => {
-        //const evtSource = new EventSource("http://192.168.1.197:5000/alprd1/alprd1");
-        const evtSource = new EventSource("http://192.168.1.122:5000/alprd1/alprd1");
+        //const evtSource = new EventSource("http://192.168.1.122:5000/alprd1/alprd1");
+        const evtSource = new EventSource(videoSsetUrl);
         evtSource.addEventListener("myEventName", (event) => {
-            // the event name here must be the same as in the API
             const myEvent = event.data;
-            console.log(myEvent);
+            console.log(evtSource);
             setState(myEvent);
             console.log(myEvent);
         });
