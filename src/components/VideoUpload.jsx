@@ -44,7 +44,6 @@ export default function VideoUpload() {
 			body.append("file", image);
 			try {
 				const response = await fetch(videoUploadUrl, {
-				//const response = await fetch("http://192.168.1.122:5000/upload_video/", {
 					method: "POST",
 					body
 				});

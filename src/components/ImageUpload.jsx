@@ -1,6 +1,9 @@
 import { useState, useRef } from "react";
 import ExportImgaesDb from "./ExportImgaesDb";
 import "./ImageUpload.css"
+
+const imageUploadUrl = import.meta.env.VITE_APP_IMAGE_UPLOAD
+
 export default function ImageUpload() {
 	// FIles States
 	const [imagePreview, setImagePreview] = useState(null);
@@ -39,8 +42,7 @@ export default function ImageUpload() {
 			const body = new FormData();
 			body.append("file", image);
 			try {
-				const response = await fetch("http://192.168.1.122:5000/upload_images/", {
-				//const response = await fetch("http://192.168.1.197:5000/upload_images/", {
+				const response = await fetch(imageUploadUrl, {
 					method: "POST",
 					body
 				});

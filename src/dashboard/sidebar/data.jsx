@@ -27,9 +27,5 @@ export const data = [
   },
 
 
-  {
-    title: "Help",
-    icon: <DocIcon />,
-    link: "/admin/help",
-  },
+
 ];

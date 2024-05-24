@@ -1,14 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-const videoSsetUrl = import.meta.env.VITE_APP_VIDEO_SSE
+const plateSsetUrl = import.meta.env.VITE_APP_PLATE_SSE
 
 
 export default function VisdeoSse() {
     const [state, setState] = useState([]);
 
     useEffect(() => {
-        //const evtSource = new EventSource("http://192.168.1.122:5000/alprd1/alprd1");
-        const evtSource = new EventSource(videoSsetUrl);
+        const evtSource = new EventSource(plateSsetUrl);
         evtSource.addEventListener("myEventName", (event) => {
             const myEvent = event.data;
             console.log(evtSource);
@@ -44,7 +43,6 @@ export default function VisdeoSse() {
                 <div className="mb-4">
                     <div className="flex h-auto">
                         <div className="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
-                            <a href="">
                                 <button type="button" className="hover:bg-neutral-300 dark:hover:bg-neutral-900  rounded-xl p-4 text-start outline-none " >
                                     <span className="flex">
                                         <svg className="mt-2 h-6 w-6 flex-shrink-0 fill-neutral-700 hs-tab-active:fill-[#fa5a15] dark:fill-neutral-300 dark:hs-tab-active:fill-[#fb713b] md:h-7 md:w-7" height="48" viewBox="0 -960 960 960" width="48">
@@ -63,7 +61,6 @@ export default function VisdeoSse() {
                                         </span>
                                     </span>
                                 </button>
-                            </a>
                         </div>
                     </div>
                 </div>
