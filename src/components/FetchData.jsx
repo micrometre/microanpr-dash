@@ -17,9 +17,27 @@ export default function alprdDataTable() {
   return (
     <div>
       <div>
-      {state.map((user, index) => (
+        {state.map((plate, index) => (
           <div key={index}>
-             {user.Key},  {user.Values}
+            <p className="text-neutral-800 dark:text-neutral-200 ]"   >
+             <span className="">
+              {index}
+              <span className="ms-6 grow">
+                <span
+                >
+                  {plate.Key}
+                </span>
+              </span>
+              <span className="ms-6 grow">
+                <span
+                >
+                  <a href={plate.Values} target='_blank'>
+                    {plate.Values}
+                  </a>
+                </span>
+              </span>
+            </span>
+            </p>
           </div>
         ))}
       </div>
